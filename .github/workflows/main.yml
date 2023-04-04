@@ -1,0 +1,19 @@
+name: Writeup compilation
+on: 
+  push:
+    branches:
+      - '**'        # matches every branch
+      - '!master'   # excludes master
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://pandoc/core:latest
+        with:
+          args: --output=output/writeup.pdf writeup.md
+      - uses: actions/upload-artifact@v3
+        with:
+          name: output
+          path: output
