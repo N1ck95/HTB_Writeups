@@ -305,7 +305,7 @@ Then I gave this wordlist and the password found to the `scanner/ssh/ssh_login` 
 - username: tkeller
 - password: denjanjade122566
 
-This way, we got the first foothold on the target system. The user flag was found in the flag.txt file in the user home and is `095f7535a7d23f22e72e303a0be558c0`.
+This way, we got the first foothold on the target system. The user flag was found in the flag.txt file in the user home.
 
 # Privilege excalation
 Now that I got a foothold on the system is time to try to get root access. First of all I checked if our user has sudo rights:
@@ -386,4 +386,4 @@ Then I launched the reverse shell by calling:
 ```bash
 sudo /usr/local/sbin/build-installer.sh build /tmp/shell.spec
 ```
-And on my local machine I obtained a root shell on my netcat listener. The root flag stored in the `/root/root.txt` file is `13b30ea6a8a41e12b08d80e80d4d5f1a`.
+And on my local machine I obtained a root shell on my netcat listener. The root flag is stored in the `/root/root.txt` file.
