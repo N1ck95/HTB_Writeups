@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: create output dir
         id: output_dir
-        run: mkdir output
+        run: mkdir -p output
 #      - uses: docker://dalibo/pandocker:latest
 #        with:
 #          args: --output=output/writeup.pdf writeup.md --from markdown --template=eisvogel --listings
