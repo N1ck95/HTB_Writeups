@@ -13,10 +13,16 @@ jobs:
       - name: create output dir
         id: output_dir
         run: mkdir output
-      - uses: docker://pandoc/core:latest
-        with:
-          args: --output=output/writeup.pdf writeup.md
+#      - uses: docker://dalibo/pandocker:latest
+#        with:
+#          args: --output=output/writeup.pdf writeup.md --from markdown --template=eisvogel --listings
+      - name: compile
+        id: compile
+        run: docker run --rm -v `pwd`:/pandoc -i dalibo/pandocker --template=eisvogel writeup.md -o output/writeup.pdf --listing --from markdown
       - uses: actions/upload-artifact@v3
         with:
           name: output
           path: output
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: 'output'
